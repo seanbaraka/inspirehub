@@ -1,0 +1,77 @@
+<% include _header.ejs %> 
+
+<section id="domain-search">
+    <div class="container">
+        <div class="domain-search">
+            <h3 class="sub-heading">Find and Register your domain</h3>
+
+            <div class="search-form">
+                <form action="/domainsearch" method="POST" class="domain frm flexed flexed-between">
+                    <input type="text" class="frm-input" placeholder="Enter your domain e.g. example.com">
+                    <input type="submit" value="search" class="btn cta">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="hosting-packages">
+    <div class="container">
+        <div class="hosting-packs">
+            <h3 class="sub-heading">Choose and Hosting package that best meets your needs</h3>
+
+            <div class="packages flexed flexed-between">
+                <div class="card basic">
+                    <div class="card-title basic">Basic</div>
+                    <div class="card-content">
+                        <ul>
+                            <li>50MB disk storage</li>
+                            <li>500 MB bandwidth</li>
+                            <li>cpanel access</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cost basic">free</div>
+                    </div>
+                </div>
+                <div class="featured-hosting">
+                    <div class="card silver">
+                        <div class="card-title silver">Silver</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>500MB disk storage</li>
+                                <li>2GB bandwidth</li>
+                                <li>free ssl certificate</li>
+                                <li>10 ftp accounts</li>
+                                <li>cpanel access</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="cost silver">Ksh. 2500
+                            </div>
+                            <a href="addtocart" class="link-text buy">Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card gold">
+                    <div class="card-title gold">Gold</div>
+                    <div class="card-content">
+                        <ul>
+                            <li>2TB disk storage</li>
+                            <li>Un bandwidth</li>
+                            <li>ssl certificate</li>
+                            <li>100 ftp accounts</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cost gold">
+                            Ksh. 7500
+                        </div>
+                        <a href="addtocart" class="link-text buy">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<% include _footer.ejs %> 

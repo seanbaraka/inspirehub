@@ -1,0 +1,28 @@
+<% include _header.ejs %> 
+
+<section id="login">
+    <div class="container">
+        <div class="form-container">
+          
+            <div class="login-form flexed">
+                <form action="login" class="frm">
+                    <h1 class="sub-heading">Login to client area</h1>
+                    <div class="frm-group">
+                        <label for="username" class="frm-label">Username or email address</label>
+                        <input type="text" class="frm-input" placeholder="enter username or email">
+                    </div>
+                    <div class="frm-group">
+                        <label for="password" class="frm-label">Password</label>
+                        <input type="password" class="frm-input" placeholder="password">
+                    </div>
+                    <div class="frm-group">
+                        <a href="/account/resetpassword" class="link-text red">forgot password ? reset it here</a>
+                    </div>
+                    <div class="frm-group">
+                        <input type="submit" value="Login" class="btn cta nb">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

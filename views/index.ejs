@@ -1,0 +1,191 @@
+<% include _header.ejs %>
+
+  <section id="top">
+    <div class="container">
+      <div class="hero flexed flexed-between">
+        <div class="hero-img">
+          <img src="assets/hero_img.png" alt="Image Slider">
+        </div>
+        <div class="hero-content">
+          <div class="hero-content-heading">
+            <h2 class="heading">
+              Providing you with state of the industry leading software solutions
+            </h2>
+          </div>
+          <div class="hero-content-form">
+            <form action="/order" class="leads frm">
+              <div class="frm-group">
+                <label for="product" class="frm-label">Choose your product</label>
+                <input type="text" list="items" class="frm-input" id="product" placeholder="Enter the name of desired product">
+                  <datalist id="items">
+                    <option value="Point of Sale">Point of Sale system</option>
+                    <option value="Bulk SMS">Bulk SMS solutions</option>
+                    <option value="School Management software">School Management Software</option>
+                    <option value="Websites and Web hosting">Websites and hosting</option>
+                  </datalist>
+              </div>
+              <a href="/products" class="btn cta">Order Now</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products-overview">
+    <div class="container">
+      <div class="products-section flexed flexed-between">
+        <div class="products-overview-desc">
+          <h3 class="section-title">Our Products</h3>
+          <div class="text-content">
+
+            Do you own a retail business where you have to handle stocks, sales, customers and reports ? Do you own flats, apartments or are you in the real estate business ? Are you an head teacher, principal or an owner of a school looking on how to manage your school activities ?
+            Well, if you meet the criteria, then we have the right software to handle your needs.
+            
+          </div>
+          <a href="/products" class="btn cta rounded">Our Product Catalog</a>
+        </div>
+
+        <div class="products-overview-tiles">
+
+          <div class="tile-item flexed flexed-start">
+            <div class="tile-item-img">
+              <img src="assets/icons/chat.svg" alt="">
+            </div>
+            <div class="card">
+              <div class="card-title">
+                Bulk SMS solutions
+              </div>
+              <div class="card-desc">
+                The cheapest and most reliable bulk sms solutions
+              </div>
+              <div class="card-link">
+                <a href="/bulksms" class="link-text">See More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile-item flexed flexed-start">
+            <div class="tile-item-img">
+              <img src="assets/icons/income.svg" alt="">
+            </div>
+            <div class="card">
+              <div class="card-title">
+                Business Solutions
+              </div>
+              <div class="card-desc">
+                 We create tailor made solutions accessible from all smart devices.
+              </div>
+              <div class="card-link">
+                <a href="/bulksms" class="link-text">See More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile-item flexed flexed-start">
+            <div class="tile-item-img">
+              <img src="assets/icons/webpage.svg" alt="">
+            </div>
+            <div class="card">
+              <div class="card-title">
+                Website & hosting
+              </div>
+              <div class="card-desc">
+                We help our clients in getting to digital space by developing professional website, registering domain and host clients.
+              </div>
+              <div class="card-link">
+                <a href="/bulksms" class="link-text">See More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile-item flexed flexed-start">
+            <div class="tile-item-img">
+              <img src="assets/icons/aps.svg" alt="">
+            </div>
+            <div class="card">
+              <div class="card-title">
+                App Solutions
+              </div>
+              <div class="card-desc">
+                We develop very beautiful efficient, reliable and user friendly mobile applications that will fully meet your requirements.
+              </div>
+              <div class="card-link">
+                <a href="/bulksms" class="link-text">See More</a>
+              </div>
+            </div>
+          </div>
+
+         </div>
+    </div>
+  </section>
+
+  <section id="ceo-message">
+    <div class="container">
+      <div class="ceo-mess flexed flexed-between flexed-start">
+        <div class="ceo-avatar">
+          <img src="assets/ceo.png" alt="Shadrack Mule K.">
+        </div>
+        <div class="ceo-desc">
+          <h3 class="section-title">Word from the CEO</h3>
+          <div class="text-content">
+            Are you stacking on how to solve your business problem by use of technology? Do you find that you solving unending issues manually instead of focusing in building your business? Fret not! Mastermind is here to assist. We specialize in providing the most Premium IT solutions to your business needs and problems. 
+          </div>
+          <a href="/about" class="btn secondary">The Company</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clients">
+    <div class="container">
+      <div class="clients-flexed flexed">
+        <div class="clients-desc">
+          <h3 class="section-title">
+            Some of our esteemed clients
+          </h3>
+          <div class="text-content">
+            We are pleased to have worked with these companies to transform and steer thier business towards growth and success by providing them with premium IT business solutions.
+          </div>
+        </div>
+        <div class="clients-img">
+          <img src="assets/clients.png" alt="">
+        </div>
+      </div>
+      <div class="brands-sec">
+        <h3 class="section-title">
+          Great Brands we have partenered with
+        </h3>
+        <div class="brands flexed flexed-between">
+          <div class="item"><img src="assets/google.svg" alt="Google"></div>
+          <div class="item"><img src="assets/icons/safaricom.png" alt="Safaricom"></div>
+          <div class="item"><img src="assets/icons/africastalking.png" alt="Africas Talking"></div>
+          <div class="item"><img src="assets/icons/mpesa.png" alt="Mpesa"></div>
+          <div class="item"><img src="assets/microsoft.svg" alt="Microsoft"></div>
+          <div class="item"><img src="assets/android.svg" alt="Android"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+    var position = []
+    navigator.geolocation.getCurrentPosition((position) => {
+      var long = position.coords.longitude
+      var lat = position.coords.latitude
+      console.log(`Your Locations Coordinates: ${long} ${lat}`)
+      console.log(position.timestamp)
+
+    }, (error) => {
+      console.log(error)
+    })
+
+
+    console.log(`Cookeis enabled ${navigator.cookieEnabled}`)
+
+
+  </script>
+
+
+<% include _footer.ejs %> 

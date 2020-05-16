@@ -1,0 +1,60 @@
+/** Common used styles. e.g flex box declaration e.t.c **/
+@mixin flex
+    display: flex
+
+@mixin flex-center      
+    justify-content: center
+
+@mixin flex-between      
+    justify-content: space-between
+
+@mixin align-center
+    align-items: center    
+
+@mixin container-width
+    width: 90%
+    max-width: 1920px
+    margin: 0 auto
+    // padding: 1em
+
+@mixin reset-text
+    text-decoration: none !important
+    color: inherit !important
+
+@mixin list-style-none 
+    list-style-type: none
+
+@mixin roundIndicator($color)
+    content: ''
+    display: inline-block
+    width: 6px
+    height: 6px
+    background-color: $color
+    border-radius: 20px
+
+@mixin drawLine($color)
+    content: ''
+    display: inline-block
+    position: absolute
+    width: 100%
+    height: .5px
+    top: 100%
+    background-color: $color
+
+@mixin textColor($color)
+    color: $color
+
+
+@mixin cardColor($color)
+    border-radius: 1em
+    background-color: $color
+    box-shadow: 0 0 2em lighten($color, 10 )
+    &:hover 
+        transition: all ease-in-out .5s
+        box-shadow: 0 0 3em lighten($color, 0)
+    color: $white
+
+@mixin card 
+    border-radius: 3em
+    background: $white
+    box-shadow: 0 0 2.5em #00000005

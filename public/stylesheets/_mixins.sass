@@ -1,0 +1,63 @@
+@mixin flexed()
+    display: flex
+    align-items: center
+
+@mixin flexed-center()
+    justify-content: center
+
+@mixin flexed-between()
+    justify-content: space-between
+
+@mixin flexed-start
+    align-items: start
+
+@mixin inputStyle
+    border: 1px solid #c2c2c2
+    border-radius: 5px
+    font-family: inherit
+    font-size: 105%
+
+@mixin inputPadded
+    @include inputStyle
+    padding: .75rem 1.2rem
+
+@mixin buttonPadded
+    text-align: center
+    padding: .75rem 1.2rem
+
+@mixin buttonRoundedBordered
+    border: 1px solid $clr-primary
+    color: $clr-primary
+    background: none
+    border-radius: 2rem
+
+@mixin screenSize
+    width: 100%
+    min-height: 100vh
+
+@mixin flexHalf
+    position: relative
+    width: 50%
+
+@mixin listStyleNone
+    ul
+        list-style: none
+
+@mixin cardBefore
+    display: block
+    content: ''
+    height: 100px
+    width: 100%
+    border-radius: 30px
+    position: absolute
+    top: -.3em
+    left: 0
+    z-index: -1
+    background: $clr-tertiary
+@mixin cardColors
+    &.basic
+        color: $clr-darkgrey
+    &.silver
+        color: $clr-tertiary
+    &.gold
+        color: $clr-primary
