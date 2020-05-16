@@ -6,12 +6,13 @@ router.get('/',(req,res) => {
 })
 
 router.get('/dashboard', (req, res) => {
-    res.render('clientarea/dashboard',);
+    res.render('clientarea/dashboard', { page: 'summary'});
 })
 
 router.get('/statements', (req, res) => {
-    res.render('clientarea/statements')
+    res.render('clientarea/dashboard',{ page: 'statements'})
 })
+
 
 
 module.exports = router;

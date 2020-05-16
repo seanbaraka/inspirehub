@@ -142,10 +142,10 @@ a {
 }
 
 .card {
-  border-radius: 3em;
-  background: #ffffff;
-  -webkit-box-shadow: 0 0 2.5em #00000005;
-          box-shadow: 0 0 2.5em #00000005;
+  border-radius: 2.5em;
+  background: #fafafa;
+  -webkit-box-shadow: 0 0 2.5em #00000015;
+          box-shadow: 0 0 2.5em #00000015;
   padding: 2em;
 }
 
@@ -242,15 +242,15 @@ a {
 }
 
 .text-gaccent {
-  color: #65c98f;
+  color: #65c98f !important;
 }
 
 .text-raccent {
-  color: #ff6a66;
+  color: #ff6a66 !important;
 }
 
 .text-oaccent {
-  color: #f7941e;
+  color: #f7941e !important;
 }
 
 .app-table {
@@ -266,6 +266,7 @@ a {
 .app-table tbody tr:hover {
   cursor: pointer;
   background-color: #fafafa;
+  color: #4d4d4d;
 }
 
 .app-table th, .app-table td {
@@ -279,6 +280,37 @@ a {
 .status {
   font-size: 80%;
   margin-left: 1em;
+}
+
+.product-items .item, .ticket-items .item {
+  cursor: pointer;
+  position: relative;
+  margin: .75em 0;
+}
+
+.product-items .item:hover, .ticket-items .item:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+  color: #4d4d4d;
+}
+
+.product-items .item .description, .ticket-items .item .description {
+  margin-left: 1em;
+  font-size: 80%;
+}
+
+.product-items .item .description .name, .ticket-items .item .description .name {
+  font-weight: 700;
+}
+
+.product-items .item .description .category, .product-items .item .description .details, .ticket-items .item .description .category, .ticket-items .item .description .details {
+  color: #999999;
+  font-size: 75%;
+  margin: .2em 0;
+}
+
+.product-items .item .description .details span, .ticket-items .item .description .details span {
+  margin: .5em .75em 1em 0;
 }
 
 body {
@@ -400,43 +432,23 @@ body main section .banners .banner-item .sub-title {
 }
 
 body main section .cards-middle {
-  margin-top: 1.5em;
+  margin-top: 1em;
 }
 
 body main section .cards-middle #left {
   width: 55%;
 }
 
-body main section .cards-middle #left .product-items .item {
-  cursor: pointer;
-  position: relative;
-  margin: .75em 0;
-}
-
-body main section .cards-middle #left .product-items .item:hover {
-  border-bottom: 1px solid #e6e6e6;
-}
-
-body main section .cards-middle #left .product-items .item .description {
-  margin-left: 1em;
-  font-size: 90%;
-}
-
-body main section .cards-middle #left .product-items .item .description .name {
-  font-weight: 700;
-}
-
-body main section .cards-middle #left .product-items .item .description .category, body main section .cards-middle #left .product-items .item .description .details {
-  color: #999999;
-  font-size: 75%;
-  margin: .2em 0;
-}
-
-body main section .cards-middle #left .product-items .item .description .details span {
-  margin: .5em .75em 1em 0;
-}
-
 body main section .cards-middle #right {
   margin-left: 1em;
+}
+
+body main section .cards-middle #right .inv-summary {
+  margin-bottom: 1em;
+}
+
+.statements {
+  width: 75%;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=main.css.map */
