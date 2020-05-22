@@ -65,4 +65,52 @@ $(document).ready(() => {
         
     })
 
+
+    /* Adding an item to the cart */
+    var addtocartBtn = $('.add_to_cart');
+
+    function addtocart(id) {
+        $.ajax({
+            method: 'POST',
+            url: '/addtocart',
+            data: { itemid: id },
+            success: (responseData) => {
+                increamentcartcount(responseData)
+                
+            },
+            error: (error) => {
+               errormessage(error.statusText)
+                
+            }
+        })
+    }
+
+    function increamentcartcount(data) {
+        var cartCounter = $('#cart-counter')
+        cartCounter.text(data)
+    }
+
+    function createsnackbar(message) {
+        var snackbar = $('#snackbar')
+        snackbar.text(`could not add item ${message}`)
+        snackbar.addClass('show')
+        setTimeout(() => {
+            snackbar.removeClass('show')
+        }, 3000);
+        
+    }
+
+    function errormessage(error) {
+        createsnackbar(error)
+    }
+
+    addtocartBtn.click((e) => {
+        var hiddenInputId = $(e.currentTarget).prev('input:hidden').val()
+        addtocart(hiddenInputId)
+    })
+
+
+
+
+
 })

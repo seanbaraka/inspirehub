@@ -50,6 +50,7 @@
                             </div>
                         </div>
 
+                    
 
                         <div class="product-features">
                             <h2 class="sub-heading">
@@ -62,7 +63,7 @@
                                             <img src="assets/hero_img.png" alt="product image">
                                         </div>
                                         <div class="p-features">
-                                            <div class="heading">POS Retail</div>
+                                            <div class="heading"><%= products[0].name %> </div>
                                             <div>
                                                 Do you own a retail business where you have to handle stocks, sales, customers and reports. This application is for you.
                                             </div>
@@ -75,10 +76,11 @@
                                             </ul>
                                         </div>
                                         <div class="p-price">
-                                            Ksh. 15000
+                                            Ksh. <%= products[0].price.toLocaleString() %> 
                                         </div>
                                         <div class="p-atc">
-                                            <div class="btn cta bordered">Add to Cart</div>
+                                            <input type="hidden" name="p-id" value="<%= products[0].id %>">
+                                            <div class="btn cta bordered add_to_cart">Add to Cart</div>
                                         </div>
                                     </div>
                                     <div class="product-item">
@@ -86,7 +88,7 @@
                                             <img src="assets/hero_img.png" alt="product image">
                                         </div>
                                         <div class="p-features">
-                                            <div class="heading">POS Wholesale</div>
+                                            <div class="heading"><%= products[1].name %> </div>
                                             <div>
                                                 Do you own a retail business where you have to handle stocks, sales, customers and reports. This application is for you.
                                             </div>
@@ -99,10 +101,11 @@
                                             </ul>
                                         </div>
                                         <div class="p-price">
-                                            Ksh. 15000
+                                            Ksh. <%= products[1].price.toLocaleString() %> 
                                         </div>
                                         <div class="p-atc">
-                                            <div class="btn cta bordered">Add to Cart</div>
+                                            <input type="hidden" name="p-id" value="<%= products[1].id %>">
+                                            <div class="btn cta bordered add_to_cart">Add to Cart</div>
                                         </div>
                                     </div>
                                     <div class="product-item">
@@ -110,7 +113,7 @@
                                             <img src="assets/hero_img.png" alt="product image">
                                         </div>
                                         <div class="p-features">
-                                            <div class="heading">POS Club</div>
+                                            <div class="heading"><%= products[2].name %> </div>
                                             <div>
                                                 Do you own a retail business where you have to handle stocks, sales, customers and reports. This application is for you.
                                             </div>
@@ -123,10 +126,11 @@
                                             </ul>
                                         </div>
                                         <div class="p-price">
-                                            Ksh. 15000
+                                            Ksh. <%= products[2].price.toLocaleString() %> 
                                         </div>
                                         <div class="p-atc">
-                                            <div class="btn cta bordered">Add to Cart</div>
+                                            <input type="hidden" name="p-id" value="<%= products[2].id %>">
+                                            <div class="btn cta bordered add_to_cart">Add to Cart</div>
                                         </div>
                                     </div>
                                 </div>

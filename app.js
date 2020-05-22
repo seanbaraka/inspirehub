@@ -7,6 +7,7 @@ var sassMiddleware = require('node-sass-middleware');
 
 var indexRouter = require('./routes/index');
 var clientAreaRouter = require('./routes/clientarea');
+var session = require('express-session');
 
 var app = express();
 
@@ -25,6 +26,11 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ 
+  secret:"TOPLEVELSECRET",
+  resave: false,
+  saveUninitialized: false
+}))
 
 app.use('/', indexRouter);
 app.use('/clientarea', clientAreaRouter )

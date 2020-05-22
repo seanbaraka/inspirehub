@@ -495,4 +495,8 @@ body main section .cards-middle #right .inv-summary {
 .statements .main-items .sub-items .receipts .details span {
   margin: .5em 2.5em .25em 0;
 }
+
+.statements .transaction-statements {
+  width: 30%;
+}
 /*# sourceMappingURL=main.css.map */
