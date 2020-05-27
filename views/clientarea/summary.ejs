@@ -1,8 +1,8 @@
 <div class="banner-top container">
     <div class="banners">
         <div class="banner-item red-accent">
-            <h2 class="title">Software</h2>
-            <h2 class="sub-title">5</h2>
+            <h2 class="title">Products</h2>
+            <h2 class="sub-title"><%= products.length %> </h2>
         </div>
         <div class="banner-item  blue-accent">
             <h2 class="title">Hosting</h2>
@@ -25,66 +25,23 @@
                 <h6 class="title smaller">My Products</h6>
                 <div class="card-items">
                     <div class="product-items">
-                        <div class="item flexed">
-                            <div class="state state-active">
-                                <span> </span>
-                            </div>
-                            <div class="description">
-                                <div class="name">ifarm dairy management software</div>
-                                <div class="category">
-                                    Farming solutions software
+                        <% products.forEach(product => { %>
+                            <div class="item flexed">
+                                <div class="state state-active">
+                                    <span> </span>
                                 </div>
-                                <div class="details flexed">
-                                    <span>Annual Subsripiton</span>
-                                    <span class="cost-pa">Ksh. 5000</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item flexed">
-                            <div class="state state-pending">
-                                <span> </span>
-                            </div>
-                            <div class="description">
-                                <div class="name">myTenant</div>
-                                <div class="category">
-                                    Real-estate software solution
-                                </div>
-                                <div class="details flexed">
-                                    <span>Annual Subsripiton</span>
-                                    <span class="cost-pa">Ksh. 5000</span>
+                                <div class="description">
+                                    <div class="name"><%= product.name %> </div>
+                                    <div class="category">
+                                        <%= product.description %> 
+                                    </div>
+                                    <div class="details flexed">
+                                        <span>Annual Subsripiton</span>
+                                        <span class="cost-pa">Ksh. <%= product.price.toLocaleString() %> </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item flexed">
-                            <div class="state state-not-paid">
-                                <span> </span>
-                            </div>
-                            <div class="description">
-                                <div class="name">elimuacademy.com domain registration</div>
-                                <div class="category">
-                                    Domains and hosting
-                                </div>
-                                <div class="details flexed">
-                                    <span>Annual Subsripiton</span>
-                                    <span class="cost-pa">Ksh. 2500</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item flexed">
-                            <div class="state state-active">
-                                <span> </span>
-                            </div>
-                            <div class="description">
-                                <div class="name">ujumbe premium</div>
-                                <div class="category">
-                                    Bulk SMS
-                                </div>
-                                <div class="details flexed">
-                                    <span>Annual Subsripiton</span>
-                                    <span class="cost-pa">Ksh. 8500</span>
-                                </div>
-                            </div>
-                        </div>
+                        <% }) %>    
                     </div>
                 </div>
             </div>
@@ -106,33 +63,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2134</td>
-                                    <td>iAcademy school bulk sms</td>
-                                    <td>Ksh. 8000</td>
-                                    <td class="status text-gaccent">
-                                        <span class="state state-active"> </span>
-                                        Paid
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2135</td>
-                                    <td>Webhosting silver premium</td>
-                                    <td>Ksh. 2000</td>
-                                    <td class="status text-oaccent">
-                                        <span class="state state-pending"> </span>
-                                        Pending
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2212</td>
-                                    <td>POS software</td>
-                                    <td>Ksh. 1500</td>
-                                    <td class="status text-raccent">
-                                        <span class="state state-not-paid"> </span>
-                                        Not Paid
-                                    </td>
-                                </tr>
+                                <% orders.forEach(order => { %>
+                                    <tr>
+                                        <td><%= order.id %> </td>
+                                        <td>products - <% order.products.forEach(prod => { %>
+                                         <%= prod.name %> | 
+                                        <% }) %>  </td>
+                                        <td>Ksh. <%= order.amount.toLocaleString() %> </td>
+                                        <td class="status <%= order.status == 'pending' ? 'text-oaccent' : 'text-gaccent' %> ">
+                                            <span class="state <%= order.status == 'complete' ? 'state-active' : 'state-pending' %> "> </span>
+                                            <%= order.status %> 
+                                        </td>
+                                    </tr>
+                                <% }) %>    
                             </tbody>
                         </table>
                     </div>
@@ -144,33 +87,44 @@
             <div class="card">
                 <h6 class="title smaller">Support Tickets</h6>
                 <div class="ticket-items">
-                    <div class="item flexed">
-                        <div class="state state-active">
-                            <span> </span>
-                        </div>
-                        <div class="description">
-                            <div class="name">#2345 Unable to load student records</div>
-                            <div class="category">
-                                iAcademy - school software
+                    <% if (tickets.lenght > 0) { %>
+                        <% tickets.forEach(ticket => { %>
+                            <div class="item flexed">
+                                <div class="state state-active">
+                                    <span> </span>
+                                </div>
+                                <div class="description">
+                                    <div class="name">#2345 Unable to load student records</div>
+                                    <div class="category">
+                                        iAcademy - school software
+                                    </div>
+                                    <div class="details flexed flexed-align-center flexed-between">
+                                        <div class="date flexed">
+                                            <span>Date:</span>
+                                            <span>10/05/2020</span>
+                                        </div>
+                                        <div class="priority text-raccent flexed  flexed-align-center">
+                                            <span>Priority:</span>
+                                            <span>High</span>
+                                        </div>
+                                        <div class="ticket-status flexed">
+                                            <span>Status:</span>
+                                            <span class="text-gaccent">
+                                                OPEN
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="details flexed flexed-align-center flexed-between">
-                                <div class="date flexed">
-                                    <span>Date:</span>
-                                    <span>10/05/2020</span>
-                                </div>
-                                <div class="priority text-raccent flexed  flexed-align-center">
-                                    <span>Priority:</span>
-                                    <span>High</span>
-                                </div>
-                                <div class="ticket-status flexed">
-                                    <span>Status:</span>
-                                    <span class="text-gaccent">
-                                        OPEN
-                                    </span>
+                        <% }) %>  
+                        <% } else { %>
+                            <div class="no-items">
+                                <div class="container">
+                                    <img src="/assets/notfound2.png" alt="" class="not-found">
+                                    <h4 class="large-text">Oops, No Support Tickets opened at the moment</h4>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                    <% } %>  
                 </div>
             </div>
         </div>

@@ -802,6 +802,24 @@ nav {
 /** Login page styling
   the page contains a form at the
     center of the page **/
+#billing .account-box {
+  width: 90%;
+  max-width: 540px;
+  margin: 0 auto; }
+  #billing .account-box form fieldset {
+    padding: 1em 2em;
+    border: 1px solid #8d8d8d;
+    font-size: 80%; }
+    #billing .account-box form fieldset legend {
+      padding: .5em; }
+    #billing .account-box form fieldset .column {
+      margin: 0 0 1em; }
+      #billing .account-box form fieldset .column label {
+        font-size: 85%; }
+      #billing .account-box form fieldset .column input {
+        padding: .5em 1.5em;
+        border-radius: 0; }
+
 #login .login-form {
   height: 400px;
   align-items: center;

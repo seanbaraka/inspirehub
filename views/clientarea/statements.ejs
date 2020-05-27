@@ -19,71 +19,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>20100</td>
-                                    <td>10-5-2020</td>
-                                    <td>School Examinations software</td>
-                                    <td>Ksh. 15000</td>
-                                    <td class="status text-gaccent">
-                                        <span class="state state-active"></span>
-                                        Paid
-                                    </td>
-                                    <td>
-                                        10-6-2020
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>20100</td>
-                                    <td>10-5-2020</td>
-                                    <td>Web hosting renewal</td>
-                                    <td>Ksh. 1500</td>
-                                    <td class="status text-oaccent">
-                                        <span class="state state-pending"></span>
-                                        Pending
-                                    </td>
-                                    <td>
-                                        10-6-2020
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>20100</td>
-                                    <td>10-5-2020</td>
-                                    <td>ifarm software acquisition</td>
-                                    <td>Ksh. 15000</td>
-                                    <td class="status text-raccent">
-                                        <span class="state state-not-paid"></span>
-                                        Not Paid
-                                    </td>
-                                    <td>
-                                        10-6-2020
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>20100</td>
-                                    <td>10-5-2020</td>
-                                    <td>School System Bulk SMS integration</td>
-                                    <td>Ksh. 10500</td>
-                                    <td class="status text-gaccent">
-                                        <span class="state state-active"></span>
-                                        Paid
-                                    </td>
-                                    <td>
-                                        10-6-2020
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>20100</td>
-                                    <td>10-5-2020</td>
-                                    <td>School System Bulk SMS integration</td>
-                                    <td>Ksh. 10500</td>
-                                    <td class="status text-gaccent">
-                                        <span class="state state-active"></span>
-                                        Paid
-                                    </td>
-                                    <td>
-                                        10-6-2020
-                                    </td>
-                                </tr>
+                                <% orders.forEach(order => { %>
+                                    <tr>
+                                        <td><%= order.id %> </td>
+                                        <td><%= new Date(order.createdAt).toLocaleDateString() %> </td>
+                                        <td>School Examinations software</td>
+                                        <td>Ksh. <%= order.amount.toLocaleString() %> </td>
+                                        <td class="status <%= order.status == 'pending' ? 'text-oaccent' : 'text-gaccent' %> ">
+                                            <span class="state <%= order.status == 'complete' ? 'state-active' : 'state-pending' %> "> </span>
+                                            <%= order.status %> 
+                                        </td>
+                                        <td>
+                                            10-6-2020
+                                        </td>
+                                    </tr>
+                                <% }) %>
                                 
                             </tbody>
                         </table>
@@ -97,87 +47,46 @@
                 <div class="card">
                     <h2 class="title smaller">Support Tickets</h2>
                     <div class="ticket-items">
-                        <div class="item flexed">
-                            <div class="state state-active">
-                                <span> </span>
-                            </div>
-                            <div class="description">
-                                <div class="name">#2345 Unable to load student records</div>
-                                <div class="category">
-                                    iAcademy - school software
-                                </div>
-                                <div class="details flexed flexed-align-center flexed-between">
-                                    <div class="date flexed">
-                                        <span>Date:</span>
-                                        <span>10/05/2020</span>
+                        <% if (tickets.length > 0) { %>
+                            <% tickets.forEach(ticket => { %>
+                                <div class="item flexed">
+                                    <div class="state state-active">
+                                        <span> </span>
                                     </div>
-                                    <div class="priority text-raccent flexed  flexed-align-center">
-                                        <span>Priority:</span>
-                                        <span>High</span>
-                                    </div>
-                                    <div class="ticket-status flexed">
-                                        <span>Status:</span>
-                                        <span class="text-gaccent">
-                                            OPEN
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item flexed">
-                            <div class="state state-not-paid">
-                                <span> </span>
-                            </div>
-                            <div class="description">
-                                <div class="name">#2345 Unable to load student records</div>
-                                <div class="category">
-                                    iAcademy - school software
-                                </div>
-                                <div class="details flexed flexed-align-center flexed-between">
-                                    <div class="date flexed">
-                                        <span>Date:</span>
-                                        <span>10/05/2020</span>
-                                    </div>
-                                    <div class="priority text-raccent flexed  flexed-align-center">
-                                        <span>Priority:</span>
-                                        <span>High</span>
-                                    </div>
-                                    <div class="ticket-status flexed">
-                                        <span>Status:</span>
-                                        <span class="text-raccent">
-                                            CLOSED
-                                        </span>
+                                    <div class="description">
+                                        <div class="name">#2345 Unable to load student records</div>
+                                        <div class="category">
+                                            iAcademy - school software
+                                        </div>
+                                        <div class="details flexed flexed-align-center flexed-between">
+                                            <div class="date flexed">
+                                                <span>Date:</span>
+                                                <span>10/05/2020</span>
+                                            </div>
+                                            <div class="priority text-raccent flexed  flexed-align-center">
+                                                <span>Priority:</span>
+                                                <span>High</span>
+                                            </div>
+                                            <div class="ticket-status flexed">
+                                                <span>Status:</span>
+                                                <span class="text-gaccent">
+                                                    OPEN
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="item flexed">
-                            <div class="state state-not-paid">
-                                <span> </span>
-                            </div>
-                            <div class="description">
-                                <div class="name">#2345 Unable to load student records</div>
-                                <div class="category">
-                                    iAcademy - school software
-                                </div>
-                                <div class="details flexed flexed-align-center flexed-between">
-                                    <div class="date flexed">
-                                        <span>Date:</span>
-                                        <span>10/05/2020</span>
-                                    </div>
-                                    <div class="priority text-raccent flexed  flexed-align-center">
-                                        <span>Priority:</span>
-                                        <span>High</span>
-                                    </div>
-                                    <div class="ticket-status flexed">
-                                        <span>Status:</span>
-                                        <span class="text-raccent">
-                                            CLOSED
-                                        </span>
+                            <% }) %>
+                            <% } else { %>
+                                <div class="no-items">
+                                    <div class="container">
+                                        <img src="/assets/notfound2.png" alt="">
+                                        <h4>
+                                            You dont have any open support tickets
+                                        </h4>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                        <% } %> 
                     </div>
                 </div>
             </div>
@@ -186,56 +95,42 @@
                 <div class="card">
                     <h2 class="title smaller">Receipts</h2>
                     <div class="receipt-items">
-                        <div class="item flexed">
-                            <div class="description" style="margin-left: 0;">
-                                <div class="name">#RC1232</div>
-                                <div class="details flexed flexed-align-center flexed-between">
-                                    <div class="flexed flexed-column">
-                                        <span class="b">Date:</span>
-                                        <span>10/05/2020</span>
-                                    </div>
-                                    <div class="flexed  flexed-column">
-                                        <span class="b">Time</span>
-                                        <span>10:59 a.m</span>
-                                    </div>
-                                    <div class="flexed flexed-column">
-                                        <span class="b">Amount</span>
-                                        <span class="">
-                                            Ksh. 1500
-                                        </span>
-                                    </div>
-                                    <div class="flexed flexed-column">
-                                        <span class="lg b">3</span>
-                                        <span class="text-oaccent" style="margin-top: 0;">items</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item flexed">
-                            <div class="description" style="margin-left: 0;">
-                                <div class="name">#RC2232</div>
-                                <div class="details flexed flexed-align-center flexed-between">
-                                    <div class="flexed flexed-column">
-                                        <span class="b">Date:</span>
-                                        <span>1/07/2020</span>
-                                    </div>
-                                    <div class="flexed  flexed-column">
-                                        <span class="b">Time</span>
-                                        <span>1:20 p.m</span>
-                                    </div>
-                                    <div class="flexed flexed-column">
-                                        <span class="b">Amount</span>
-                                        <span class="">
-                                            Ksh. 10500
-                                        </span>
-                                    </div>
-                                    <div class="flexed flexed-column">
-                                        <span class="lg b">5</span>
-                                        <span class="text-oaccent" style="margin-top: 0;">items</span>
+                        <% if (receipts.length > 0) { %>
+                            <% receipts.forEach(receipt => { %>
+                                <div class="item flexed">
+                                    <div class="description" style="margin-left: 0;">
+                                        <div class="name">#RC1232</div>
+                                        <div class="details flexed flexed-align-center flexed-between">
+                                            <div class="flexed flexed-column">
+                                                <span class="b">Date:</span>
+                                                <span>10/05/2020</span>
+                                            </div>
+                                            <div class="flexed  flexed-column">
+                                                <span class="b">Time</span>
+                                                <span>10:59 a.m</span>
+                                            </div>
+                                            <div class="flexed flexed-column">
+                                                <span class="b">Amount</span>
+                                                <span class="">
+                                                    Ksh. 1500
+                                                </span>
+                                            </div>
+                                            <div class="flexed flexed-column">
+                                                <span class="lg b">3</span>
+                                                <span class="text-oaccent" style="margin-top: 0;">items</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            <% }) %>
+                         <% } else { %>
+                          <div class="no-items">
+                              <div class="container">
+                                  <img src="/assets/notfound2.png" alt="">
+                                  <h4>No receipts here</h4>
+                              </div>
+                          </div>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -248,108 +143,32 @@
             <h2 class="title smaller">Statements</h2>
             <div class="statement-items">
                 <div class="ticket-items">
-                    <div class="item flexed">
-                        <div class="state state-active">
-                            <span> </span>
-                        </div>
-                        <div class="description">
-                            <div class="name">Invoice Unable to load student records</div>
-                            <div class="category">
-                                iAcademy - school software
+                    <% if (statements.length > 0) { %>
+                        <div class="item flexed">
+                            <div class="state state-active">
+                                <span> </span>
                             </div>
-                            <div class="details flexed flexed-align-center flexed-between">
-                                <div class="date flexed">
-                                    <span>Date:</span>
-                                    <span>10/05/2020</span>
+                            <div class="description">
+                                <div class="name">Invoice Unable to load student records</div>
+                                <div class="category">
+                                    iAcademy - school software
+                                </div>
+                                <div class="details flexed flexed-align-center flexed-between">
+                                    <div class="date flexed">
+                                        <span>Date:</span>
+                                        <span>10/05/2020</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item flexed">
-                        <div class="state state-active">
-                            <span> </span>
-                        </div>
-                        <div class="description">
-                            <div class="name">Payment - Receipt Number #RC1245</div>
-                            <div class="category">
-                                example.com web hosting renewal
-                            </div>
-                            <div class="details flexed flexed-align-center flexed-between">
-                                <div class="date flexed">
-                                    <span>Date:</span>
-                                    <span>10/05/2020</span>
-                                </div>
+                    <% } else { %>
+                        <div class="no-items">
+                            <div class="container">
+                                <img src="/assets/notfound2.png" alt="">
+                                <h4>Cant find any statements at the moment</h4>
                             </div>
                         </div>
-                    </div>
-                    <div class="item flexed">
-                        <div class="state state-active">
-                            <span> </span>
-                        </div>
-                        <div class="description">
-                            <div class="name">Ticket - Unable to load student records</div>
-                            <div class="category">
-                                User Support Ticket
-                            </div>
-                            <div class="details flexed flexed-align-center flexed-between">
-                                <div class="date flexed">
-                                    <span>Date:</span>
-                                    <span>10/05/2020</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item flexed">
-                        <div class="state state-active">
-                            <span> </span>
-                        </div>
-                        <div class="description">
-                            <div class="name">Invoice - Invoice Number #2456</div>
-                            <div class="category">
-                                Bulk SMS subscription
-                            </div>
-                            <div class="details flexed flexed-align-center flexed-between">
-                                <div class="date flexed">
-                                    <span>Date:</span>
-                                    <span>10/05/2020</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item flexed">
-                        <div class="state state-active">
-                            <span> </span>
-                        </div>
-                        <div class="description">
-                            <div class="name">Payment - Receipt number #RC2232</div>
-                            <div class="category">
-                                example.com domain registration
-                            </div>
-                            <div class="details flexed flexed-align-center flexed-between">
-                                <div class="date flexed">
-                                    <span>Date:</span>
-                                    <span>10/05/2020</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item flexed">
-                        <div class="state state-active">
-                            <span> </span>
-                        </div>
-                        <div class="description">
-                            <div class="name">Payment - Receipt Number #RC1232</div>
-                            <div class="category">
-                                iAcademy - school software
-                            </div>
-                            <div class="details flexed flexed-align-center flexed-between">
-                                <div class="date flexed">
-                                    <span>Date:</span>
-                                    <span>10/05/2020</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>

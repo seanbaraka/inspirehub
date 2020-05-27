@@ -3,6 +3,8 @@ var router = express.Router();
 const request = require('request');
 var session = require('express-session')
 
+
+
 const BASE_URL = "http://localhost:3000/api/"
 
 var cartItems = []
@@ -45,12 +47,34 @@ router.get('/business', checkCartObject, (req,res,next) => {
 
 /* Get websites and hosting page */
 router.get('/websites',checkCartObject, (req, res, next ) => {
-  res.render('websites', { cartItems: cartItems})
+  res.render('websites', { cartItems: cartItems.length})
 })
 
 /* Get the client area login  */
-router.get('/login', (req,res,next) => {
-  res.render('login')
+router.get('/login', checkCartObject, (req,res,next) => {
+  res.render('login', { cartItems: cartItems.length})
+})
+
+
+/* Client login post request */
+router.post('/login',(req, res, next ) => {
+  
+  let user = req.body
+
+  console.log(user)
+
+  request.post(`${BASE_URL}users/login`, {
+    method: 'POST',
+    json: true, 
+    body: user
+  }, (error, response) => {
+    if(error) res.status(404)
+
+    if(response.body.error) res.status(403).end()
+
+    req.session.user = response.body.success;
+    res.redirect('/clientarea')
+  })
 })
 
 /* Get the bulk sms page */
@@ -72,6 +96,7 @@ router.get('/farming', checkCartObject, (req,res,next)=> {
   res.render('farming', { cartItems: cartItems})
 })
 
+
 router.post('/addtocart', (req,res,next) => {
   let prodId = req.body.itemid
   request.get({
@@ -82,7 +107,8 @@ router.post('/addtocart', (req,res,next) => {
 
     let item = JSON.parse(response.body)
 
-    if(cartItems.find(x => x.id) == item.id ) console.log("Item already in cart")
+    /* If an item id already exists in the cart, then increament
+    the sub total and item quantiy */
 
     cartItems.push(item);
     req.session.cart = cartItems
@@ -105,6 +131,41 @@ router.get('/cartitems', checkCartObject, (req,res,next) => {
 
 })
 
+router.get('/checkout', checkCartObject, (req,res,next) => {
+  res.render('checkout', { cartItems: cartItems.length })
+})
+
+router.post('/register', (req, res, next) => {
+
+  let order = req.session.cart
+
+  req.body.order = order
+
+  const user = req.body
+  
+  request.post(
+    `${BASE_URL}users/customer/register`, {
+      json: true,
+      body: user,
+      method: 'POST'
+    }, 
+    (error, response) => {
+
+      if(error) res.status(403).end()
+
+      req.session.destroy();
+
+      console.log(response)
+
+      res.status(200).redirect('/login')
+
+
+
+    }
+  )
+  
+  // console.log(req.body)
+})
 
 
 module.exports = router;

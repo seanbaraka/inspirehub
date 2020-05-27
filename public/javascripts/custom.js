@@ -76,7 +76,7 @@ $(document).ready(() => {
             data: { itemid: id },
             success: (responseData) => {
                 increamentcartcount(responseData)
-                
+                createsnackbar("Item Added to Cart")
             },
             error: (error) => {
                errormessage(error.statusText)
@@ -92,7 +92,7 @@ $(document).ready(() => {
 
     function createsnackbar(message) {
         var snackbar = $('#snackbar')
-        snackbar.text(`could not add item ${message}`)
+        snackbar.text(message)
         snackbar.addClass('show')
         setTimeout(() => {
             snackbar.removeClass('show')
@@ -110,7 +110,12 @@ $(document).ready(() => {
     })
 
 
+    /* Customer Registration */
+    var registerBtn = $('#btnRegister')
 
-
+    /* Account menu hide and show */
+    $('.account-tab').hover(() => {
+        $('.account-actions').toggle()
+    })
 
 })

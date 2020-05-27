@@ -1,0 +1,56 @@
+<% include _header.ejs %> 
+
+<section id="billing">
+    <div class="container">
+        <div class="account-box">
+            <form action="/register" method="POST" class="account-form frm">
+                <fieldset>
+                    <legend>Billing Information</legend>
+                    <div class="column flexed flexed-between">
+                        <div class="frm-group">
+                            <label for="fname" class="frm-label">Firstname</label>
+                            <input type="text" class="frm-input" placeholder="E.g. John" required name="firstname">
+                        </div>
+                        <div class="frm-group">
+                            <label for="lname" class="frm-label">Lastname</label>
+                            <input type="text" class="frm-input" placeholder="E.g. Musyoki" required name="lastname">
+                        </div>
+                    </div>
+                    <div class="column flexed flexed-between">
+                        <div class="frm-group">
+                            <label for="emailadress" class="frm-label">Email Address</label>
+                            <input type="email" class="frm-input" placeholder="E.g. johnmusyoki@mail.com" required name="email">
+                        </div>
+                        <div class="frm-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="text" class="frm-input" placeholder="E.g. 0712345678" name="phone">
+                        </div>
+                    </div>
+                    <div class="column flexed">
+                        <div class="frm-group">
+                            <label for="address">Physical Address</label>
+                            <input type="text" class="frm-input" placeholder="E.g. Township, Machakos" name="address">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Account Information</legend>
+                    <div class="column flexed flexed-between">
+                        <div class="frm-group">
+                            <label for="pass">Password</label>
+                            <input type="password" placeholder="Your Password" class="frm-input" name="password" required>
+                        </div>
+                        <div class="frm-group">
+                            <label for="confirm">Confirm Password</label>
+                            <input type="password" class="frm-input" name="confirmpass" placeholder="Confirm Your Password" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <input type="submit"  id="btnRegister" value="Finish Account Setup" class="cta btn nb">
+            </form>
+        </div>
+    </div>
+</section>
+
+<% include _footer.ejs %> 

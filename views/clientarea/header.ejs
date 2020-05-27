@@ -27,14 +27,21 @@
                         <img src="/assets/notification.svg" alt="">
                         <span class="badge round accent-red">2</span>
                     </div>
-                    <div class="account-tab flexed flexed-align-center">
+                    <div id="account-tab" class="account-tab flexed flexed-align-center">
                         <img src="/assets/user.svg" alt="">
-                        <span>Sean Baraka</span>
+                        <span><%= user.firstName %> <%= user.lastName %> <%= user.cust_id %>    </span>
+                        <div class="account-actions">
+                            <h5>Account Settings</h5>
+                            <form action="logout" method="post">
+                                <button class="link-text" type="submit">Logout</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+
 
 
     <main class="flexed">

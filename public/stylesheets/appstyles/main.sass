@@ -159,6 +159,25 @@ a
             .details
                 span 
                     margin: .5em .75em 1em 0
+    .no-items 
+        .container 
+            text-align: center
+            img 
+                width: 60%
+                margin: 0 auto
+                filter: grayscale(100%)
+                opacity: 50%
+            h4 
+                text-align: center
+                color: $greyFade
+                font-weight: 700
+
+.link-text 
+    background: none
+    border: none
+    text-decoration: none
+    color: inherit
+    cursor: pointer
                     
 
 body
@@ -186,10 +205,26 @@ body
                     cursor: pointer
                     margin: 0 .125em
                 .account-tab
+                    position: relative
                     span 
                         margin-left: .25em
                         font-size: 80%
                         color: $greyFade
+                    .account-actions
+                        display: none
+                        position: absolute
+                        width: 120%
+                        left: -1em
+                        top: 1.25em
+                        color: $greyFade
+                        background: $ashWhite
+                        box-shadow: 0 0 2.5em #00000015
+                        padding: 1.5em 1em 
+                        border-radius: 10px
+                        form 
+                            padding: 1em 0
+
+                        
     
     main 
         padding: 1em
