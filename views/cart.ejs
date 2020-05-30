@@ -1,56 +1,66 @@
 <% include _header.ejs %> 
 
 <% if (notfound) { %>
- <section> <%= notfound %> </section>
-<% } %> 
-
-<section>
-    <div class="container">
-        <div class="container-cart">
-            <div class="cart-card">
-                <h4 class="cart-title sub-title">Shopping Cart</h4>
-                <div class="cart-list">
-                    <% cart.forEach(element => { %>
-                        <div class="cart-list-item flexed flexed-between">
-                            <div class="item">
-                                <h4><%= element.name %> </h4>
-                                <div class="desc"><%= element.category.name %> </div>
+ <section> 
+     <div class="centered-container">
+         <div class="no-items">
+             <img src="/assets/emptycart.png" alt="">
+             <h4><%= notfound %> </h4>
+         </div>
+     </div>
+ </section>
+ <% } else { %>
+    <section>
+        <div class="container">
+            <div class="container-cart">
+                <div class="cart-card">
+                    <h4 class="cart-title sub-title">Shopping Cart</h4>
+                    <div class="cart-list">
+                        <% cart.forEach(element => { %>
+                            <div class="cart-list-item flexed flexed-between">
+                                <div class="item">
+                                    <h4><%= element.name %> </h4>
+                                    <div class="desc"><%= element.category.name %> </div>
+                                </div>
+                                <div class="item-price">
+                                    Ksh. <%= element.price.toLocaleString() %> 
+                                </div>
+                                <div class="item-remove">
+                                    <a href="/remove/" class="danger">Remove</a>
+                                </div>
                             </div>
-                            <div class="item-price">
-                                Ksh. <%= element.price.toLocaleString() %> 
-                            </div>
-                            <div class="item-remove">
-                                <a href="/remove/" class="danger">Remove</a>
-                            </div>
-                        </div>
-                    <% }) %>
-                    <div class="total-container flexed">
-                        <h4>Total:</h4>
-                        <span class="total">
-                            <% for( let i = 0; i < cart.length; i++ ) { %>
-                            <% total += cart[i].price %> 
-                            <% } %> 
-                            <%= total %> 
-                        </span>
-                    </div>
-                </div>
-                <div class="payments">
-                    <div class="flexed flexed-align-center">
-                        <h4>Payment Method</h4>
-                        <div class="pay-methods flexed flexed-align-center">
-                            <img src="assets/mpesa2.png" width="100" alt="">
-                            <img src="assets/master.png" width="50" alt="">
-                            <img src="assets/visa.png"  width="50" alt="">
+                        <% }) %>
+                        <div class="total-container flexed">
+                            <h4>Total:</h4>
+                            <span class="total">
+                                <% for( let i = 0; i < cart.length; i++ ) { %>
+                                <% total += cart[i].price %> 
+                                <% } %> 
+                                <%= total %> 
+                            </span>
                         </div>
                     </div>
-                </div>
-                <div class="checkout">
-                    <a href="/checkout" class="btn cta">Proceed To Checkout</a>
+                    <div class="payments">
+                        <div class="flexed flexed-align-center">
+                            <h4>Payment Method</h4>
+                            <div class="pay-methods flexed flexed-align-center">
+                                <img src="assets/mpesa2.png" width="100" alt="">
+                                <img src="assets/master.png" width="50" alt="">
+                                <img src="assets/visa.png"  width="50" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout">
+                        <a href="/checkout" class="btn cta">Proceed To Checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<% } %> 
+
+
+ 
 
 
 <% include _footer.ejs %> 

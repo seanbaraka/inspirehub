@@ -50,12 +50,13 @@
                                                         <li>Real-time updates</li>
                                                     </ul>
                                                     <div class="p-price">
-                                                        Ksh. 15000
+                                                        Ksh. <%= products[0].price.toLocaleString() %> 
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="p-atc">
-                                                    <div class="btn cta bordered">Add to Cart</div>
+                                                    <input type="hidden" name="p-id" value="<%= products[0].id %>">
+                                                    <div class="btn cta bordered add_to_cart">Add to Cart</div>
                                                 </div>
                                             </div>
                                         
