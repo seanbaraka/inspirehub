@@ -32,9 +32,11 @@
   box-sizing: border-box; }
 
 body {
-  font-family: "Muli";
-  background: url("../assets/bg.svg") no-repeat;
-  background-size: cover; }
+  font-family: "Muli"; }
+  @media screen and (min-width: 768px) {
+    body {
+      background: url("../assets/bg.svg") no-repeat;
+      background-size: cover; } }
 
 /** Text styling **/
 .text-content {
@@ -99,8 +101,35 @@ nav {
   padding: 1em 0; }
   nav .nav-bar .logo {
     width: 200px; }
+    @media screen and (max-width: 768px) {
+      nav .nav-bar .logo {
+        position: relative;
+        right: 30%; } }
     nav .nav-bar .logo img {
       width: 200px; }
+  nav .nav-bar .menu-icon {
+    display: none;
+    position: relative;
+    width: 15px;
+    padding: 1em; }
+    nav .nav-bar .menu-icon:hover {
+      background: #8d8d8d;
+      border-radius: 100%; }
+    @media screen and (max-width: 768px) {
+      nav .nav-bar .menu-icon {
+        display: block; }
+        nav .nav-bar .menu-icon .hamburger, nav .nav-bar .menu-icon .hamburger::before, nav .nav-bar .menu-icon .hamburger::after {
+          position: absolute;
+          left: 0;
+          content: '';
+          background: #3b3b3b;
+          width: 80%;
+          border-radius: 10px;
+          height: 2px; }
+        nav .nav-bar .menu-icon .hamburger::before {
+          transform: translateY(-7px); }
+        nav .nav-bar .menu-icon .hamburger::after {
+          transform: translateY(7px); } }
   nav .nav-bar .cart-icon {
     position: fixed;
     top: 2.2em;
@@ -119,9 +148,57 @@ nav {
       background: red;
       color: #ffffff;
       text-decoration: none; }
+  nav .nav-bar-menu-mobile {
+    display: none; }
+    @media screen and (max-width: 768px) {
+      nav .nav-bar-menu-mobile {
+        display: block;
+        background: #f9f9f9;
+        position: fixed;
+        top: 0;
+        width: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 1000;
+        box-shadow: 0 2px 1em rgba(0, 0, 0, 0.1); }
+        nav .nav-bar-menu-mobile .close-icon {
+          position: absolute;
+          right: 0;
+          top: 1em;
+          padding: 1em; }
+          nav .nav-bar-menu-mobile .close-icon .close::before, nav .nav-bar-menu-mobile .close-icon .close::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: #3b3b3b; }
+          nav .nav-bar-menu-mobile .close-icon .close::before {
+            transform: rotate(45deg) translateY(1px) translateX(3px); }
+          nav .nav-bar-menu-mobile .close-icon .close::after {
+            transform: rotate(-45deg) translateY(2px); }
+        nav .nav-bar-menu-mobile .mobile-list {
+          list-style-type: none;
+          display: none;
+          padding: 2em .5em; }
+          nav .nav-bar-menu-mobile .mobile-list li {
+            padding: 1em .25em; }
+            nav .nav-bar-menu-mobile .mobile-list li a {
+              padding: 0 2em;
+              display: inline-block;
+              width: 100%; }
+            nav .nav-bar-menu-mobile .mobile-list li .cat-header {
+              font-weight: 900;
+              color: #4d4d4d; }
+            nav .nav-bar-menu-mobile .mobile-list li .mini-menu {
+              border-left: 1px solid #f7941e;
+              list-style-type: none;
+              margin-left: 2em; }
+              nav .nav-bar-menu-mobile .mobile-list li .mini-menu li a {
+                padding: 0 .5em; } }
   nav .nav-bar-menu {
     position: relative;
-    right: 1.5em; }
+    right: 1.5em;
+    display: block; }
     @media screen and (max-width: 768px) {
       nav .nav-bar-menu {
         display: none; } }
@@ -210,7 +287,7 @@ nav {
   .hero-content {
     margin-top: -2rem; }
     .hero-content-heading {
-      font: 2rem "PT Sans";
+      font: 1.75rem "PT Sans";
       margin-bottom: 1rem; }
     .hero-content-form, .hero-content .text-content {
       width: 75%; }
@@ -231,55 +308,59 @@ nav {
       .hero-content-form {
         width: 100%; } }
 
-#business-top .container, #softwaretabs .container, #realestate-top .container, #bulksms-top .container, #about-top .container, #ussd .container {
+#about-top .hero-content-heading {
+  padding-top: 2.5em; }
+
+#business-top .container, #softwaretabs .container, #realestate-top .container, #bulksms-top .container, #about-top .container, #ussd .container, #sms .container {
   width: 75%;
   margin: 0 auto; }
   @media screen and (max-width: 768px) {
-    #business-top .container, #softwaretabs .container, #realestate-top .container, #bulksms-top .container, #about-top .container, #ussd .container {
+    #business-top .container, #softwaretabs .container, #realestate-top .container, #bulksms-top .container, #about-top .container, #ussd .container, #sms .container {
       width: 90%; } }
   @media screen and (max-width: 768px) {
-    #business-top .container .hero-content, #softwaretabs .container .hero-content, #realestate-top .container .hero-content, #bulksms-top .container .hero-content, #about-top .container .hero-content, #ussd .container .hero-content {
+    #business-top .container .hero-content, #softwaretabs .container .hero-content, #realestate-top .container .hero-content, #bulksms-top .container .hero-content, #about-top .container .hero-content, #ussd .container .hero-content, #sms .container .hero-content {
       width: 100%;
-      top: -75px; }
-      #business-top .container .hero-content .text-content, #softwaretabs .container .hero-content .text-content, #realestate-top .container .hero-content .text-content, #bulksms-top .container .hero-content .text-content, #about-top .container .hero-content .text-content, #ussd .container .hero-content .text-content {
+      top: -75px;
+      padding-top: 4.5em; }
+      #business-top .container .hero-content .text-content, #softwaretabs .container .hero-content .text-content, #realestate-top .container .hero-content .text-content, #bulksms-top .container .hero-content .text-content, #about-top .container .hero-content .text-content, #ussd .container .hero-content .text-content, #sms .container .hero-content .text-content {
         width: 100%; } }
-  #business-top .container .hero-content-heading, #softwaretabs .container .hero-content-heading, #realestate-top .container .hero-content-heading, #bulksms-top .container .hero-content-heading, #about-top .container .hero-content-heading, #ussd .container .hero-content-heading {
+  #business-top .container .hero-content-heading, #softwaretabs .container .hero-content-heading, #realestate-top .container .hero-content-heading, #bulksms-top .container .hero-content-heading, #about-top .container .hero-content-heading, #ussd .container .hero-content-heading, #sms .container .hero-content-heading {
     width: 75%; }
-  #business-top .container .hero-content .btn, #softwaretabs .container .hero-content .btn, #realestate-top .container .hero-content .btn, #bulksms-top .container .hero-content .btn, #about-top .container .hero-content .btn, #ussd .container .hero-content .btn {
+  #business-top .container .hero-content .btn, #softwaretabs .container .hero-content .btn, #realestate-top .container .hero-content .btn, #bulksms-top .container .hero-content .btn, #about-top .container .hero-content .btn, #ussd .container .hero-content .btn, #sms .container .hero-content .btn {
     width: 60%;
     margin-top: 3em; }
     @media screen and (max-width: 768px) {
-      #business-top .container .hero-content .btn, #softwaretabs .container .hero-content .btn, #realestate-top .container .hero-content .btn, #bulksms-top .container .hero-content .btn, #about-top .container .hero-content .btn, #ussd .container .hero-content .btn {
+      #business-top .container .hero-content .btn, #softwaretabs .container .hero-content .btn, #realestate-top .container .hero-content .btn, #bulksms-top .container .hero-content .btn, #about-top .container .hero-content .btn, #ussd .container .hero-content .btn, #sms .container .hero-content .btn {
         width: 100%;
         margin: 1em 0; } }
-  #business-top .container .hero-img img, #softwaretabs .container .hero-img img, #realestate-top .container .hero-img img, #bulksms-top .container .hero-img img, #about-top .container .hero-img img, #ussd .container .hero-img img {
+  #business-top .container .hero-img img, #softwaretabs .container .hero-img img, #realestate-top .container .hero-img img, #bulksms-top .container .hero-img img, #about-top .container .hero-img img, #ussd .container .hero-img img, #sms .container .hero-img img {
     width: 125%; }
 
-#ussd p {
+#ussd p, #sms p {
   margin: 0 auto;
   width: 75%; }
   @media screen and (max-width: 768px) {
-    #ussd p {
+    #ussd p, #sms p {
       width: 100%;
       text-align: left; } }
 
-#ussd .hero {
+#ussd .hero, #sms .hero {
   min-height: auto; }
 
-#ussd .ussd-cards {
+#ussd .ussd-cards, #sms .ussd-cards {
   margin-top: 2em;
   display: grid;
   gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
   @media screen and (max-width: 768px) {
-    #ussd .ussd-cards {
+    #ussd .ussd-cards, #sms .ussd-cards {
       width: 90%;
       margin: 2em auto; }
-      #ussd .ussd-cards .card {
+      #ussd .ussd-cards .card, #sms .ussd-cards .card {
         min-width: 0 !important;
         width: 100%;
         max-width: 3000px; } }
-  #ussd .ussd-cards .card {
+  #ussd .ussd-cards .card, #sms .ussd-cards .card {
     min-width: 300px;
     min-height: 140px;
     padding: 2em; }
@@ -324,8 +405,11 @@ nav {
       padding: 1.75em; }
   #values .container-statements {
     width: 50%; }
+    @media screen and (max-width: 768px) {
+      #values .container-statements {
+        width: 75%; } }
 
-/** Products Overview secttion
+/** Products Overview section
   will make use of cards for aesthetics and hoping
     to match the background color **/
 #products-overview {
@@ -380,10 +464,10 @@ nav {
             font-weight: 700; } }
 
 #ceo-message {
-  height: calc( 100vh - 200px); }
+  height: calc(100vh - 200px); }
   @media screen and (max-width: 768px) {
     #ceo-message {
-      height: calc( 100vh - 100px); } }
+      height: auto; } }
   @media screen and (max-width: 768px) {
     #ceo-message .ceo-mess {
       flex-flow: column; } }
@@ -397,8 +481,7 @@ nav {
       position: relative;
       width: 100%; }
     #ceo-message .ceo-avatar .btn, #ceo-message .ceo-desc .btn {
-      width: 40%;
-      margin-top: 2.5em; }
+      width: 40%; }
   #ceo-message .ceo-desc {
     position: relative;
     left: -7.5rem; }
@@ -411,7 +494,9 @@ nav {
       @media screen and (max-width: 768px) {
         #ceo-message .ceo-desc .btn {
           left: 0;
-          position: static; } }
+          position: static;
+          display: inline-block;
+          width: 50%; } }
 
 #clients {
   width: 100%;
@@ -436,23 +521,25 @@ nav {
     margin: 2em 0; }
     #clients .brands-sec .brands {
       padding: 2em;
-      margin-bottom: 4em;
+      margin: 0 auto;
       width: 75%; }
       @media screen and (max-width: 768px) {
         #clients .brands-sec .brands {
           flex-flow: column;
           justify-content: start;
           width: 100%; } }
-      @media screen and (max-width: 768px) {
-        #clients .brands-sec .brands .item {
-          margin: 1em; } }
-      #clients .brands-sec .brands .item img {
-        min-width: 70px;
-        max-width: 100px;
-        filter: grayscale(100%); }
+      #clients .brands-sec .brands .item {
+        margin: 1em; }
         @media screen and (max-width: 768px) {
-          #clients .brands-sec .brands .item img {
-            max-width: 400px; } }
+          #clients .brands-sec .brands .item {
+            margin: 1em; } }
+        #clients .brands-sec .brands .item img {
+          width: 80%;
+          min-width: 100px;
+          max-width: 100px; }
+          @media screen and (max-width: 768px) {
+            #clients .brands-sec .brands .item img {
+              max-width: 400px; } }
 
 #subscribe p {
   text-align: center;
@@ -683,17 +770,18 @@ nav {
   min-height: 100vh;
   padding: 3rem 0 0; }
   #hosting-packages .hosting-packs {
-    width: 55%;
+    width: 75%;
     margin: 0 auto; }
     @media screen and (max-width: 768px) {
       #hosting-packages .hosting-packs {
         width: 100%; }
-        #hosting-packages .hosting-packs .packages {
-          flex-flow: column;
-          justify-content: space-between; }
-          #hosting-packages .hosting-packs .packages .card {
-            min-height: 0; } }
+        #hosting-packages .hosting-packs .packages .card {
+          min-height: 0; } }
     #hosting-packages .hosting-packs .packages {
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em;
       padding: 3em 0 0; }
       @media screen and (max-width: 768px) {
         #hosting-packages .hosting-packs .packages .featured-hosting {
@@ -705,68 +793,70 @@ nav {
             width: auto; } }
         #hosting-packages .hosting-packs .packages .featured-hosting .card-title {
           position: relative;
-          top: -3em;
+          top: -3.5em;
           font-size: 150%; }
         #hosting-packages .hosting-packs .packages .featured-hosting .card-content {
           position: relative;
           top: -3em; }
-        #hosting-packages .hosting-packs .packages .featured-hosting .card-footer {
-          line-height: 0; }
-          #hosting-packages .hosting-packs .packages .featured-hosting .card-footer .cost {
-            font-size: 1.5em;
-            position: relative;
-            top: -1.5em; }
-          #hosting-packages .hosting-packs .packages .featured-hosting .card-footer .buy {
-            position: relative;
-            top: -1.5em; }
+        #hosting-packages .hosting-packs .packages .featured-hosting .card-footer .cost {
+          font-size: 1.5em;
+          position: relative; }
+        #hosting-packages .hosting-packs .packages .featured-hosting .card-footer .buy {
+          position: relative;
+          top: -1.5em; }
       #hosting-packages .hosting-packs .packages .card, #hosting-packages .hosting-packs .packages .featured-hosting {
-        padding: 1em 1.75em;
         position: relative;
-        width: 280px; }
+        min-width: 280px; }
         @media screen and (max-width: 768px) {
           #hosting-packages .hosting-packs .packages .card, #hosting-packages .hosting-packs .packages .featured-hosting {
             width: 85%;
             max-width: 250px; } }
-        #hosting-packages .hosting-packs .packages .card.basic::before, #hosting-packages .hosting-packs .packages .featured-hosting.basic::before {
-          display: block;
-          content: '';
-          height: 100px;
-          width: 100%;
-          border-radius: 30px;
-          position: absolute;
-          top: -.3em;
-          left: 0;
-          z-index: -1;
-          background: #32c5f3;
-          background: #8d8d8d; }
-        #hosting-packages .hosting-packs .packages .card.silver::before, #hosting-packages .hosting-packs .packages .featured-hosting.silver::before {
-          display: block;
-          content: '';
-          height: 100px;
-          width: 100%;
-          border-radius: 30px;
-          position: absolute;
-          top: -.3em;
-          left: 0;
-          z-index: -1;
-          background: #32c5f3;
-          background: #32c5f3; }
-        #hosting-packages .hosting-packs .packages .card.gold::before, #hosting-packages .hosting-packs .packages .featured-hosting.gold::before {
-          display: block;
-          content: '';
-          height: 100px;
-          width: 100%;
-          border-radius: 30px;
-          position: absolute;
-          top: -.3em;
-          left: 0;
-          z-index: -1;
-          background: #32c5f3;
-          background: #f7941e; }
+        #hosting-packages .hosting-packs .packages .card.basic, #hosting-packages .hosting-packs .packages .featured-hosting.basic {
+          padding: 2rem; }
+          #hosting-packages .hosting-packs .packages .card.basic::before, #hosting-packages .hosting-packs .packages .featured-hosting.basic::before {
+            display: block;
+            content: '';
+            height: 100px;
+            width: 100%;
+            border-radius: 30px;
+            position: absolute;
+            top: -.3em;
+            left: 0;
+            z-index: -1;
+            background: #32c5f3;
+            background: #8d8d8d; }
+        #hosting-packages .hosting-packs .packages .card.silver, #hosting-packages .hosting-packs .packages .featured-hosting.silver {
+          padding: 2rem; }
+          #hosting-packages .hosting-packs .packages .card.silver::before, #hosting-packages .hosting-packs .packages .featured-hosting.silver::before {
+            display: block;
+            content: '';
+            height: 100px;
+            width: 100%;
+            border-radius: 30px;
+            position: absolute;
+            top: -.3em;
+            left: 0;
+            z-index: -1;
+            background: #32c5f3;
+            background: #32c5f3; }
+        #hosting-packages .hosting-packs .packages .card.gold, #hosting-packages .hosting-packs .packages .featured-hosting.gold {
+          padding: 2rem; }
+          #hosting-packages .hosting-packs .packages .card.gold::before, #hosting-packages .hosting-packs .packages .featured-hosting.gold::before {
+            display: block;
+            content: '';
+            height: 100px;
+            width: 100%;
+            border-radius: 30px;
+            position: absolute;
+            top: -.3em;
+            left: 0;
+            z-index: -1;
+            background: #32c5f3;
+            background: #f7941e; }
         #hosting-packages .hosting-packs .packages .card-title, #hosting-packages .hosting-packs .packages .featured-hosting-title {
-          text-align: center;
-          font-weight: 700;
+          font-weight: 900;
           text-transform: uppercase;
+          font-size: 1.75rem;
           margin: .5em 0; }
           #hosting-packages .hosting-packs .packages .card-title.basic, #hosting-packages .hosting-packs .packages .featured-hosting-title.basic {
             color: #8d8d8d; }
@@ -780,10 +870,9 @@ nav {
           #hosting-packages .hosting-packs .packages .card-content ul, #hosting-packages .hosting-packs .packages .featured-hosting-content ul {
             list-style: none; }
         #hosting-packages .hosting-packs .packages .card-footer .cost, #hosting-packages .hosting-packs .packages .featured-hosting-footer .cost {
-          margin: 1em 0;
-          font-size: 1.3rem;
+          font-size: 1.5rem;
           text-transform: uppercase;
-          font-weight: 700; }
+          font-weight: 900; }
           #hosting-packages .hosting-packs .packages .card-footer .cost.basic, #hosting-packages .hosting-packs .packages .featured-hosting-footer .cost.basic {
             color: #8d8d8d; }
           #hosting-packages .hosting-packs .packages .card-footer .cost.silver, #hosting-packages .hosting-packs .packages .featured-hosting-footer .cost.silver {
@@ -819,6 +908,109 @@ nav {
       #billing .account-box form fieldset .column input {
         padding: .5em 1.5em;
         border-radius: 0; }
+
+.web-packs, .school-packs {
+  width: 75%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em; }
+  @media screen and (max-width: 768px) {
+    .web-packs, .school-packs {
+      width: 90%; } }
+  .web-packs .card, .school-packs .card {
+    min-width: 270px;
+    padding: 2em; }
+    .web-packs .card .card-title, .school-packs .card .card-title {
+      font-size: 1.2rem; }
+    .web-packs .card .card-desc, .school-packs .card .card-desc {
+      font-size: 80%;
+      font-weight: 700;
+      padding: .5em 0; }
+    .web-packs .card .card-footer .cost, .school-packs .card .card-footer .cost {
+      padding: .5em 0;
+      font-weight: 900;
+      font-size: 1.5rem; }
+    .web-packs .card .card-footer a, .school-packs .card .card-footer a {
+      color: #ffffff;
+      background: #f7941e;
+      margin: .25em 0;
+      padding: .75em 2.5em;
+      font-size: 78%;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      text-align: center; }
+
+.school-packs {
+  width: 100%; }
+  @media screen and (max-width: 768px) {
+    .school-packs {
+      width: 90%; } }
+
+.ussd-cards .card-footer .cost {
+  padding: .5em 0;
+  font-weight: 900;
+  font-size: 1.5rem; }
+
+.ussd-cards .card-footer a {
+  color: #ffffff;
+  background: #f7941e;
+  margin: .25em 0;
+  padding: .75em 2.5em;
+  font-size: 78%;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center; }
+
+.card-footer .cost {
+  padding: .5em 0;
+  font-weight: 900;
+  font-size: 1.5rem; }
+
+.card-footer a {
+  color: #ffffff;
+  background: #f7941e;
+  margin: .25em 0;
+  padding: .75em 2.5em;
+  font-size: 78%;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none; }
+
+ul.features {
+  list-style-type: square;
+  font-size: 75%; }
+  ul.features li {
+    padding: .25em 0;
+    margin-left: 1.2em; }
+
+.sitems-cont {
+  width: 75%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  @media screen and (max-width: 768px) {
+    .sitems-cont {
+      width: 90%; } }
+  .sitems-cont ul.features li {
+    margin-left: 0; }
+  .sitems-cont.ibooks {
+    width: 90%;
+    grid-template-columns: auto; }
+    .sitems-cont.ibooks .card {
+      width: 70%;
+      margin: 0 auto !important; }
+      @media screen and (max-width: 768px) {
+        .sitems-cont.ibooks .card {
+          width: 100%; } }
+
+.mtenant.card {
+  padding: 2rem;
+  max-width: 350px; }
 
 #login .login-form {
   height: 400px;

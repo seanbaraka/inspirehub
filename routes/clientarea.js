@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const request = require('request')
+const request = require('request');
+const { json } = require('express');
 
 const BASE_URL = "http://localhost:3000/api/"
 
@@ -34,17 +35,30 @@ function getCustomerData(res,id,page) {
             json: true
         }, (err, resp) => {
 
-            let orders = resp.body.success
-            let products = []
-            let tickets = []
-            let receipts = []
-            let statements = []
+            let invoices = []
+            request.get({
+                url: `${BASE_URL}orders/invoices/customer/${loggedInUser.id}`,
+                method: 'GET',
+                json: true
+            }, (err, response) => {
+                invoices = response.body
+                
+                let orders = resp.body
+                let products = []
+                let tickets = []
+                let receipts = []
+                let statements = []
+                let hosting = []
 
-            orders.forEach(item => {
-                products = item.products
-            });
+                orders.forEach(item => {
+                    products = item.products
+                });
 
-            res.render('clientarea/dashboard', { page: page, user: loggedInUser , orders: orders, products: products, tickets: tickets, customer: customer, receipts: receipts, statements: statements })
+                console.log("All invoices for the customer ", invoices);
+                
+                res.render('clientarea/dashboard', { page: page, user: loggedInUser , orders: orders, products: products, tickets: tickets, customer: customer, receipts: receipts, statements: statements, hosting: hosting, invoices: invoices })
+            })
+
 
         })
     })

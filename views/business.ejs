@@ -28,7 +28,7 @@
         <div class="tab-container">
             <div class="tab-container-header">
                 <div class="links flexed flexed-between">
-                    <a href="#pos" class="tab-active link-text tab-control">POS systems</a>
+                    <a href="#pos" class="tab-active link-text tab-control">Point Of Sale</a>
                     <a href="#workflow" class="link-text tab-control">Workflow</a>
                     <a href="#sales" class="link-text tab-control">Sales</a>
                 </div>
@@ -42,95 +42,67 @@
                             </div>
                             <div class="hero-content">
                                 <h3 class="heading">
-                                    Point Of Sales systems
+                                    Point Of Sales system
                                 </h3>
                                 <div class="text-content">
-                                    With its features in: Online based you can access your shop from anywhere, Monitor your business,Track your sales from a smart device,Manage inventory, Monitor your daily profits and Get reports and analysis.
+                                    Applicable in Hotels, Restaurants, Wholesales, Distributors, Stores, Agrovets and Chemists.
                                 </div>
                             </div>
                         </div>
-
-                    
 
                         <div class="product-features">
                             <h2 class="sub-heading">
                                 Products Features and pricing
                             </h2>
                             <div class="product-features-container">
-                                <div class="flexed flexed-between">
-                                    <div class="product-item">
-                                        <div class="p-img">
-                                            <img src="assets/hero_img.png" alt="product image">
-                                        </div>
+                                <div class="software-items sitems-cont">
+                                    <div class="product-item card">
                                         <div class="p-features">
-                                            <div class="heading"><%= products[0].name %> </div>
-                                            <div>
-                                                Do you own a retail business where you have to handle stocks, sales, customers and reports. This application is for you.
+                                            <div class="card-title">
+                                                <p>Software</p>
                                             </div>
-                                            <ul>
-                                                <li class="heading sm">Product Features</li>
+                                            <ul class="features">
                                                 <li>Accounting module</li>
                                                 <li>Cash recording</li>
                                                 <li>Report Generation</li>
                                                 <li>Real-time updates</li>
                                             </ul>
                                         </div>
-                                        <div class="p-price">
-                                            Ksh. <%= products[0].price.toLocaleString() %> 
-                                        </div>
-                                        <div class="p-atc">
-                                            <input type="hidden" name="p-id" value="<%= products[0].id %>">
-                                            <div class="btn cta bordered add_to_cart">Add to Cart</div>
+                                        <div class="card-footer">
+                                            <div class="cost">
+                                                Ksh. <%= products[0].price.toLocaleString() %> 
+                                            </div>
+                                            <div class="p-atc">
+                                                <input type="hidden" name="p-id" value="<%= products[0].id %>">
+                                                <a class="btn cta bordered add_to_cart">Add to Cart</a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="product-item">
-                                        <div class="p-img">
-                                            <img src="assets/hero_img.png" alt="product image">
-                                        </div>
+                                    <div class="product-item card">
                                         <div class="p-features">
-                                            <div class="heading"><%= products[1].name %> </div>
-                                            <div>
-                                                Do you own a retail business where you have to handle stocks, sales, customers and reports. This application is for you.
+                                            <div class="card-title">
+                                               <p>Software + Hardware</p>
                                             </div>
-                                            <ul>
-                                                <li class="heading sm">Product Features</li>
-                                                <li>Accounting module</li>
-                                                <li>Cash recording</li>
-                                                <li>Report Generation</li>
-                                                <li>Real-time updates</li>
+                                            <ul class="features">
+                                                <li>POS software plus</li>
+                                                <li>160GB HDD and 2GB RAM</li>
+                                                <li>Printer 80mm</li>
+                                                <li>Cash Drawer</li>
+                                                <li>Barcode Scanner</li>
+                                                <li>
+                                                    <b>NOTE: </b>
+                                                    Prices will change depending on the scope
+                                                </li>
                                             </ul>
                                         </div>
-                                        <div class="p-price">
-                                            Ksh. <%= products[1].price.toLocaleString() %> 
-                                        </div>
-                                        <div class="p-atc">
-                                            <input type="hidden" name="p-id" value="<%= products[1].id %>">
-                                            <div class="btn cta bordered add_to_cart">Add to Cart</div>
-                                        </div>
-                                    </div>
-                                    <div class="product-item">
-                                        <div class="p-img">
-                                            <img src="assets/hero_img.png" alt="product image">
-                                        </div>
-                                        <div class="p-features">
-                                            <div class="heading"><%= products[2].name %> </div>
-                                            <div>
-                                                Do you own a retail business where you have to handle stocks, sales, customers and reports. This application is for you.
+                                        <div class="card-footer">
+                                            <div class="cost">
+                                                Ksh. <%= products[1].price.toLocaleString() %> 
+                                            </div> 
+                                            <div class="p-atc">
+                                                <input type="hidden" name="p-id" value="<%= products[1].id %>">
+                                                <a class="btn cta bordered add_to_cart">Add to Cart</a>
                                             </div>
-                                            <ul>
-                                                <li class="heading sm">Product Features</li>
-                                                <li>Accounting module</li>
-                                                <li>Cash recording</li>
-                                                <li>Report Generation</li>
-                                                <li>Real-time updates</li>
-                                            </ul>
-                                        </div>
-                                        <div class="p-price">
-                                            Ksh. <%= products[2].price.toLocaleString() %> 
-                                        </div>
-                                        <div class="p-atc">
-                                            <input type="hidden" name="p-id" value="<%= products[2].id %>">
-                                            <div class="btn cta bordered add_to_cart">Add to Cart</div>
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +125,7 @@
                                         Workflow systems
                                     </h3>
                                     <div class="text-content">
-                                        Do you own a middle level company where you handling corporate clients. This application is for you. With its features in.
+                                        Applicable in contracting firms, SME's, Jua Kali sector and cost management firms
                                     </div>
                                 </div>
 
@@ -166,29 +138,29 @@
                                     Products Features and pricing
                                 </h2>
                                 <div class="product-features-container">
-                                    <div class="flexed flexed-between">
-                                        <div class="product-item">
-                                            <div class="p-img">
-                                                <img src="assets/hero_img.png" alt="product image">
-                                            </div>
+                                    <div class="sitems-cont ibooks">
+                                        <div class="product-item card">
                                             <div class="p-features">
-                                                <div class="heading">Workflow Management system</div>
-                                                <div>
-                                                    Do you own a middle level company where you handling corporate clients. This application is for you. With its features in.
-                                                </div>
-                                                <ul>
-                                                    <li class="heading sm">Product Features</li>
-                                                    <li>Accounting module</li>
-                                                    <li>Cash recording</li>
-                                                    <li>Report Generation</li>
-                                                    <li>Real-time updates</li>
+                                                <div class="card-title">iBooks</div>
+                                                <ul class="features">
+                                                    <li>Client Management</li>
+                                                    <li>Raise quotations and orders</li>
+                                                    <li>Job management</li>
+                                                    <li>Costing</li>
+                                                    <li>Resource Allocation</li>
+                                                    <li>Tracking productivity</li>
+                                                    <li>Receipting</li>
+                                                    <li>Invoicing</li>
+                                                    <li>Bulk SMS</li>
                                                 </ul>
                                             </div>
-                                            <div class="p-price">
-                                                Ksh. 15000
-                                            </div>
-                                            <div class="p-atc">
-                                                <div class="btn cta bordered">Add to Cart</div>
+                                            <div class="card-footer">
+                                                <div class="cost">
+                                                    Ksh. 100,000
+                                                </div>
+                                                <div class="p-atc">
+                                                    <a class="btn cta bordered">Add to Cart</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +183,7 @@
                                         Sales recording system
                                     </h3>
                                     <div class="text-content">
-                                        With its features in: Online based you can access your shop from anywhere, Monitor your business,Track your sales from a smart device,Manage inventory, Monitor your daily profits and Get reports and analysis.
+                                        Applicable in all businesses
                                     </div>
                                 </div>
                             </div>
@@ -222,29 +194,30 @@
                                     Products Features and pricing
                                 </h2>
                                 <div class="product-features-container">
-                                    <div class="flexed flexed-between">
-                                        <div class="product-item">
-                                            <div class="p-img">
-                                                <img src="assets/hero_img.png" alt="product image">
-                                            </div>
+                                    <div class="sitems-cont ibooks">
+                                        <div class="product-item card">
                                             <div class="p-features">
-                                                <div class="heading">iCash sales solution</div>
-                                                <div>
-                                                    Do you own a retail business where you have to handle stocks, sales, customers and reports. This application is for you.
-                                                </div>
+                                                <div class="heading">iCash</div>
                                                 <ul>
-                                                    <li class="heading sm">Product Features</li>
-                                                    <li>Accounting module</li>
-                                                    <li>Cash recording</li>
-                                                    <li>Report Generation</li>
-                                                    <li>Real-time updates</li>
+                                                    <li>Client Management</li>
+                                                    <li>Accounts Management</li>
+                                                    <li>Accounts Receivable and Accounts payable modules</li>
+                                                    <li>Daily reports</li>
+                                                    <li>Bank Reconciliation</li>
+                                                    <li>Track cash in and out of business</li>
+                                                    <li>
+                                                        <b>NOTE: </b>
+                                                        Features can be customized to client demands
+                                                    </li>
                                                 </ul>
                                             </div>
-                                            <div class="p-price">
-                                                Ksh. 15000
-                                            </div>
-                                            <div class="p-atc">
-                                                <div class="btn cta bordered">Add to Cart</div>
+                                            <div class="card-footer">
+                                                <div class="cost">
+                                                    Ksh. 50,000
+                                                </div>
+                                                <div class="p-atc">
+                                                    <div class="btn cta bordered">Add to Cart</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

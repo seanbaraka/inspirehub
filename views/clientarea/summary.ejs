@@ -6,15 +6,15 @@
         </div>
         <div class="banner-item  blue-accent">
             <h2 class="title">Hosting</h2>
-            <h2 class="sub-title">2</h2>
+            <h2 class="sub-title"><%= hosting.length %> </h2>
         </div> 
         <div class="banner-item  green-accent">
             <h2 class="title">Invoices</h2>
-            <h2 class="sub-title">5</h2>
+            <h2 class="sub-title"><%= invoices.length %> </h2>
         </div>
         <div class="banner-item  orange-accent">
             <h2 class="title">Tickets</h2>
-            <h2 class="sub-title">2</h2>
+            <h2 class="sub-title"><%= tickets.length %></h2>
         </div>
     </div>
 </div>
@@ -50,7 +50,7 @@
     <div id="right">
         <div class="inv-summary">
             <div class="card">
-                <h6 class="title smaller">My Invoices</h6>
+                <h6 class="title smaller">My Orders</h6>
                 <div class="card-items">
                     <div class="inv-items">
                         <table class="app-table inv-summary-table">
@@ -70,14 +70,19 @@
                                          <%= prod.name %> | 
                                         <% }) %>  </td>
                                         <td>Ksh. <%= order.amount.toLocaleString() %> </td>
-                                        <td class="status <%= order.status == 'pending' ? 'text-oaccent' : 'text-gaccent' %> ">
-                                            <span class="state <%= order.status == 'complete' ? 'state-active' : 'state-pending' %> "> </span>
-                                            <%= order.status %> 
+                                        <td class="status <%= order.status == 0 ? 'text-oaccent' : 'text-gaccent' %> ">
+                                            <span class="state <%= order.status == 1 ? 'state-active' : 'state-pending' %> "> </span>
+                                            <% if (order.status == 1) { %>
+                                             Completed
+                                            <% } else { %>
+                                             Pending
+                                            <% } %>
                                         </td>
                                     </tr>
                                 <% }) %>    
                             </tbody>
                         </table>
+                        <a href="statements" class="more-link">Show All</a>
                     </div>
                 </div>
 
@@ -122,10 +127,12 @@
                                 <div class="container">
                                     <img src="/assets/notfound2.png" alt="" class="not-found">
                                     <h4 class="large-text">Oops, No Support Tickets opened at the moment</h4>
+                                    <a href="tickets" class="more-link">Add Ticket</a>
                                 </div>
                             </div>
                     <% } %>  
                 </div>
+                <a href="statements" class="more-link">Show All</a>
             </div>
         </div>
     </div>

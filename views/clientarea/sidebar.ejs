@@ -5,17 +5,8 @@
             <ul>
                 <li><%= user.firstName %> <%= user.lastName %> </li>
                 <li><%= user.emailAddress %> </li>
-                <li><%= customer.address %> </li>
-                <li><%= customer.tel %> </li>
-            </ul>
-        </div>
-        <div class="aside-container navigation-links-container">
-            <ul class="nav-links">
-                <li class="dashboard-link item active"><a href="">Dashboard</a></li>
-                <li class="dashboard-link item"><a href="statements">Invoices <span class="badge round">4</span></a></li>
-                <li class="dashboard-link item"><a href="statements">Tickets <span class="badge round">3</span></a></li>
-                <li class="dashboard-link item"><a href="statements">Statements</a></li>
-                <li class="dashboard-link item"><a href="statements">Receipts</a></li>
+                <li>Location: <%= customer.address %> </li>
+                <li>Tel: <%= customer.tel %> </li>
             </ul>
         </div>
     </div>

@@ -30,7 +30,6 @@ $(document).ready(() => {
         tabBody.siblings().removeClass('active')
     })
 
-
     /* adding a background effect to the nave on scrolling */
     var nav = $('nav')
 
@@ -117,5 +116,36 @@ $(document).ready(() => {
     $('.account-tab').hover(() => {
         $('.account-actions').toggle()
     })
+
+    /* Mobile Menu toggle */
+    var menuOpen = false
+    var menuIcon = $('.menu-icon')
+    var menu = $('.nav-bar-menu-mobile')
+    var menuList = $('.mobile-list')
+    let closeIcon = $('.close-icon')
+    menuIcon.click(function() {
+        if(!menuOpen) {
+            menu.animate({
+            width: '70%',
+        }, 450)
+            menuOpen = true
+            menuList.show()
+        } else {
+            closeMenu()
+        }
+    })
+
+    /* Close The opened Menu*/
+    closeIcon.click(function() {
+        closeMenu()
+    })
+
+    function closeMenu() {
+        menu.animate({
+            width: '0'
+        }, 250)
+        menuList.hide()
+        menuOpen = false
+    }
 
 })

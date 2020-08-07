@@ -15,22 +15,31 @@
                                     <th>Description</th>
                                     <th>Amount</th>
                                     <th>Status</th>
+                                    <th>Balance</th>
                                     <th>Due Date</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <% orders.forEach(order => { %>
+                                <% invoices.forEach(invoice => { %>
                                     <tr>
-                                        <td><%= order.id %> </td>
-                                        <td><%= new Date(order.createdAt).toLocaleDateString() %> </td>
+                                        <td><%= invoice.number %> </td>
+                                        <td><%= new Date(invoice.date).toLocaleDateString() %> </td>
                                         <td>School Examinations software</td>
-                                        <td>Ksh. <%= order.amount.toLocaleString() %> </td>
-                                        <td class="status <%= order.status == 'pending' ? 'text-oaccent' : 'text-gaccent' %> ">
-                                            <span class="state <%= order.status == 'complete' ? 'state-active' : 'state-pending' %> "> </span>
-                                            <%= order.status %> 
+                                        <td>Ksh. <%= invoice.order.amount.toLocaleString() %> </td>
+                                        <td class="status <%= invoice.status == 2 ? 'text-oaccent' : invoice.status == 1 ? 'text-gaccent' : 'text-raccent' %> ">
+                                            <span class="state <%= invoice.status == 1 ? 'state-active' : invoice.status == 0 ? 'state-not-paid' : 'state-pending' %> ">
+                                            </span>
+                                            <% if (invoice.status == 1) { %>
+                                                Completed
+                                               <% } else if(invoice.status == 2) { %>
+                                                Partially paid
+                                               <% } else { %>
+                                               Not Paid 
+                                               <% } %>
                                         </td>
+                                        <td class="bold">Ksh. <%= invoice.balance.toLocaleString() %> </td>
                                         <td>
-                                            10-6-2020
+                                            <%= new Date(invoice.duedate).toLocaleDateString() %> 
                                         </td>
                                     </tr>
                                 <% }) %>

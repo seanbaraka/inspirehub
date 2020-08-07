@@ -102,6 +102,7 @@ a
         @include roundIndicator($orangeAccent)
     &-not-paid
         @include roundIndicator($redAccent)
+         
 
 .text
     &-gaccent
@@ -126,7 +127,7 @@ a
                 background-color: lighten($greyFade, 38)
                 color: darken($greyFade, 30)
     th,td 
-        padding: .75em 
+        padding: .75em .5em
         .state 
             top: 0
 
@@ -134,7 +135,8 @@ a
     font-size: 80%    
     margin-left: 1em
 
-
+.bold 
+    font-weight: 900
 
 .product-items,.ticket-items,.receipt-items
     .item
@@ -187,6 +189,7 @@ body
     nav
         position: sticky
         top: 0
+        z-index: 100
         .logo
             width: 15%
             img 
@@ -223,14 +226,26 @@ body
                         border-radius: 10px
                         form 
                             padding: 1em 0
+        @media screen and ( max-width: 768px )
+            width: 100%
+            .title 
+                display: none
+            .logo 
+                width: 300px
 
                         
     
     main 
+        @media screen and ( max-width: 768px )
+            flex-flow: column
         padding: 1em
         aside 
             position: fixed
             width: 250px
+            @media screen and ( max-width: 768px )
+                position: static
+                width: 90%
+                margin: 0 auto
             .aside-container
                 margin: 1em 0
                 ul 
@@ -258,11 +273,17 @@ body
             
             width: calc(100% - 250px)
             margin-left: 250px
+            @media screen and ( max-width: 768px )
+                width: 100%
+                margin-left: 0
             .banners 
                 width: 100%
                 display: grid
                 grid-template-columns: repeat(auto-fit, minmax(20%, 1fr)) 
                 gap: 1em   
+                @media screen and ( max-width: 768px )
+                    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr))
+                    gap: 1em
 
                 .banner-item 
                     cursor: pointer
@@ -280,30 +301,66 @@ body
                 margin-top: 1em
                 #left 
                     width: 55%
+                    @media screen and ( max-width: 768px )
+                        width: 100%
+                        margin-bottom: 1em
                     
                 #right 
                     margin-left: 1em
+                    @media screen and ( max-width: 768px )
+                        margin-left: 0
                     .inv-summary 
                         margin-bottom: 1em
+                    .inv-items 
+                        @media screen and ( max-width: 768px )
+                            overflow-x: scroll
+                            table 
+                                width: 400px
+                @media screen and ( max-width: 768px )
+                    flex-flow: column
+.inv-items 
+    @media screen and ( max-width: 768px )
+        overflow: scroll
+        table 
+            width: 700px
 
-
-.statements 
+.statements
+    @media screen and ( max-width: 768px )
+         flex-flow: column
     .main-items 
         width: 65%
         margin-right: 1em
+        @media screen and ( max-width: 768px )
+            width: 100%
+            margin-right: 0
         
         .invoices 
            margin-bottom: 1em
 
         .sub-items
+            @media screen and ( max-width: 768px )
+                flex-flow: column
+                .tickets 
+                    margin-right: 0 !important
+                    margin-bottom: 1em
             .tickets 
                 margin-right: 1em
             .receipts
                 width: 100%
+                @media screen and ( max-width: 768px )
+                    margin-bottom: 1em
                 .details
                     span 
                         margin: .5em 2.5em .25em 0
     .transaction-statements
         width: 30%
+        @media screen and ( max-width: 768px )
+            width: 100%
                             
                                 
+.more-link 
+  font-size: 12px !important
+  text-decoration: underline !important
+  color: #0059e7 !important
+  font-weight: 700
+  padding: 1em 0

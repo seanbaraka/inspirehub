@@ -29,36 +29,34 @@
 
                 <div class="tab-content active">
                         <div class="container">
-                            <div class="tab-hero flexed flexed-between">
+                            <div class="">
                                 <div class="product-features">
                                     <h2 class="sub-heading">
                                         Products Features and pricing
                                     </h2>
-                                    <div class="product-features-container one-p">
-                
-                                            <div class="product-item flexed flexed-between">
-                                                <div class="p-img">
-                                                    <img src="assets/hero_img.png" alt="product image">
+                                    <div class="sitems-cont ibooks">
+                                        <div class="mtenant card">
+                                            <div class="card-title">
+                                                    myTenant
                                                 </div>
-                                               
-                                                <div class="p-features">
-                                                    <ul>
-                                                        <li class="heading sm">Product Features</li>
-                                                        <li>Accounting module</li>
-                                                        <li>Cash recording</li>
-                                                        <li>Report Generation</li>
-                                                        <li>Real-time updates</li>
-                                                    </ul>
-                                                    <div class="p-price">
-                                                        Ksh. <%= products[0].price.toLocaleString() %> 
-                                                    </div>
-                                                </div>
-                                                
+                                                <ul class="features">
+                                                    <li>Rooms, Tenants, Rent and Bills Management</li>
+                                                    <li>Reports Generation</li>
+                                                    <li>Tenanant account management</li>
+                                                    <li>Bulk SMS</li>
+                                                    <li>Cloud Account</li>
+                                                </ul>
+                                
+                                            <div class="card-footer">
                                                 <div class="p-atc">
+                                                    <div class="cost">
+                                                        Ksh. 45,000
+                                                    </div>
                                                     <input type="hidden" name="p-id" value="<%= products[0].id %>">
                                                     <div class="btn cta bordered add_to_cart">Add to Cart</div>
                                                 </div>
                                             </div>
+                                        </div>
                                         
                                     </div>
                                 </div>
